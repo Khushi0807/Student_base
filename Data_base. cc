@@ -1,0 +1,208 @@
+#include<iostream>
+using namespace std;
+string arr1[20],arr2[20],arr3[20],arr4[20],arr5[20];
+int total=0;
+void enter()
+{
+   int choice;
+   cout<<"How many students do you want to enter: ";
+   cin>>choice;
+   if(total==0)
+   {
+   total = total+choice;
+   for(int i=0;i<choice;i++)
+   {
+       cout<<"\n Enter data of student: "<<i+1<<endl<<endl;
+       cout<<"Enter name : ";
+       cin>>arr1[i];
+       cout<<"Enter University roll no: ";
+       cin>>arr2[i];
+       cout<<"Enter Course: ";
+       cin>>arr3[i];
+       cout<<"Enter Branch: ";
+       cin>>arr4[i];
+       cout<<"Enter Phone number: ";
+       cin>>arr5[i];
+     }  
+   }
+   else
+   {
+      for(int i=total;i<total+choice;i++)
+   {
+       cout<<"\n Enter data of student: "<<i+1<<endl<<endl;
+       cout<<"Enter name : ";
+       cin>>arr1[i];
+       cout<<"Enter University roll no: ";
+       cin>>arr2[i];
+       cout<<"Enter Course: ";
+       cin>>arr3[i];
+       cout<<"Enter Branch: ";
+       cin>>arr4[i];
+       cout<<"Enter Phone number: ";
+       cin>>arr5[i];
+     }  
+       
+   }
+}
+void show()
+{
+
+   if(total==0)
+   {
+     cout<<"No Data is Entered!!"<<endl;
+   }
+   else{
+   for(int i=0;i<total;i++)
+   {
+     cout<<"\n Data of student: "<<i+1<<endl<<endl;
+     cout<<"Name of Student: "<<arr1[i]<<endl;
+     cout<<"URL of Student: "<<arr2[i]<<endl;
+     cout<<"Course of Student: "<<arr3[i]<<endl;
+     cout<<"Branch of Student: "<<arr4[i]<<endl;
+     cout<<"Phone number of Student: "<<arr5[i]<<endl;
+     }
+   }
+}
+void search()
+{ 
+    if(total==0)
+   {
+     cout<<"No Data is Entered!!"<<endl;
+   }
+   else{
+   string url;
+   cout<<"Enter URL of a student you want to search: ";
+   cin>>url;
+   for(int i=0;i<total;i++)
+   {
+   if(url == arr2[i])
+   {
+     cout<<"\n Data of student: "<<i+1<<endl<<endl;
+     cout<<"Name of Student: "<<arr1[i]<<endl;
+     cout<<"URL of Student: "<<arr2[i]<<endl;
+     cout<<"Course of Student: "<<arr3[i]<<endl;
+     cout<<"Branch of Student: "<<arr4[i]<<endl;
+     cout<<"Phone number of Student: "<<arr5[i]<<endl;
+   }
+   } 
+   }
+}
+void update()
+{
+
+   if(total==0)
+   {
+     cout<<"No Data is Entered!!"<<endl;
+   }
+   else{
+     string url;
+   cout<<"Enter URL of a student you want to search: ";
+   cin>>url;
+   for(int i=0;i<total;i++)
+   {
+   if(url == arr2[i])
+   {
+     cout<<"Previous Data of Student"<<endl;
+     cout<<"\n Data of student: "<<i+1<<endl<<endl;
+     cout<<"Name of Student: "<<arr1[i]<<endl;
+     cout<<"URL of Student: "<<arr2[i]<<endl;
+     cout<<"Course of Student: "<<arr3[i]<<endl;
+     cout<<"Branch of Student: "<<arr4[i]<<endl;
+     cout<<"Phone number of Student: "<<arr5[i]<<endl;
+     cout<<"Enter new data of student"<<endl;
+     cout<<"Enter name : ";
+     cin>>arr1[i];
+     cout<<"Enter University roll no: ";
+     cin>>arr2[i];
+     cout<<"Enter Course: ";
+     cin>>arr3[i];
+     cout<<"Enter Branch: ";
+     cin>>arr4[i];
+     cout<<"Enter Phone number: ";
+     cin>>arr5[i];
+     }
+   }
+   } 
+}
+void del()
+{
+
+   if(total==0)
+   {
+     cout<<"No Data is Entered!!"<<endl;
+   }
+   else
+   {
+    int a;
+    cout<<"Enter 1 to delete whole data"<<endl;
+    cout<<"Enter 2 to delete specific data"<<endl;
+    cin>>a;
+    if(a==1)
+    {
+       total=0;
+       cout<<"All record is deleted"<<endl;
+    }
+    else if(a==2)
+    {
+      string url;
+   cout<<"Enter URL of a student you want to search: ";
+   cin>>url;
+   for(int i=0;i<total;i++)
+   {
+   if(url == arr2[i])
+   {  
+      for(int j=i;j<total;j++)
+      {
+         arr1[j]=arr1[j+1];
+         arr2[j]=arr2[j+1];
+         arr3[j]=arr3[j+1];
+         arr4[j]=arr4[j+1];
+         arr5[j]=arr5[j+1];
+      }
+     total--;
+     cout<<"Your data is deleted!!";
+   }
+   }
+   }
+}
+}
+int main()
+{  
+   int value; 
+   while(true)
+   {
+   cout<<"\n\nPress 1 to enter data"<<endl;
+   cout<<"Press 2 to show data"<<endl;
+   cout<<"Press 3 to search data"<<endl;
+   cout<<"Press 4 to update data"<<endl;
+   cout<<"Press 5 to delete data"<<endl;
+   cout<<"Press 6 to exit"<<endl;
+   cin>>value;
+   switch(value)
+   {
+       case 1:  
+             enter();
+             break;
+       case 2:
+              show();
+              break;
+       case 3:
+             search();
+             break;
+       case 4:
+             update();
+             break;
+       case 5:
+              del();
+              break;
+       case 6:
+               exit(0);
+               break;
+        default:
+              cout<<"Invalid input"<<endl;
+              break;
+         
+                           
+   }
+}
+}
